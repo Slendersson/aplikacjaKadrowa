@@ -28,7 +28,7 @@ namespace kadrowa
             }
             using(StreamReader file = File.OpenText(filepath))
             {
-                employees = (ObservableCollection<employeeModel>)serializer.Deserialize(file, typeof(employeeModel));
+                employees = (ObservableCollection<employeeModel>)serializer.Deserialize(file, typeof(ObservableCollection<employeeModel>));
             }
             return employees;
         }
@@ -43,7 +43,7 @@ namespace kadrowa
             File.WriteAllText(filepath, "");
             StreamWriter writer = new StreamWriter(File.OpenWrite(filepath));
             serializer.Serialize(writer, employeeList);
-            
+            writer.Close();
         }
         
     }

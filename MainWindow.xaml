@@ -36,14 +36,14 @@
                 <ColumnDefinition Width="439*"/>
                 <ColumnDefinition Width="361*"/>
             </Grid.ColumnDefinitions>
-            <DataGrid Name="dataGridMain" Grid.ColumnSpan="2">
+            <DataGrid x:Name="dataGridMain" Grid.ColumnSpan="2" FontWeight="Bold" ItemsSource="{Binding}" AutoGenerateColumns="False">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="ID" FontWeight="Bold"/>
-                    <DataGridTextColumn Header="IMIĘ" FontWeight="Bold"/>
-                    <DataGridTextColumn Header="NAZWISKO" FontWeight="Bold"/>
-                    <DataGridTextColumn Header="ZAROBKI" FontWeight="Bold"/>
-                    <DataGridTextColumn Header="DATA ZATRUDNIENIA" FontWeight="Bold"/>
-                    <DataGridTextColumn Header="DATA ZWOLNIENIA" FontWeight="Bold"/>
+                    <DataGridTextColumn Header="ID" Binding="{Binding employeeId}"/>
+                    <DataGridTextColumn Header="IMIĘ" Binding="{Binding employeeName}"/>
+                    <DataGridTextColumn Header="NAZWISKO" Binding="{Binding employeeSurname}"/>
+                    <DataGridTextColumn Header="ZAROBKI" Binding="{Binding employeeSalary}"/>
+                    <DataGridTextColumn Header="DATA ZATRUDNIENIA" Binding="{Binding employeeDateOfEmployment}"/>
+                    <DataGridTextColumn Header="DATA ZWOLNIENIA" Binding="{Binding employeeDateOfTermination}"/>
                 </DataGrid.Columns>
             </DataGrid>
         </Grid>

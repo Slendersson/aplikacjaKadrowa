@@ -23,10 +23,9 @@ namespace kadrowa
         {
             fileHandling fileHandler =  new fileHandling();
             ObservableCollection<employeeModel> employeeList = new ObservableCollection<employeeModel>();
-            employeeList.Add(new employeeModel(1, "Marek", "Browarek", 1000));
-            fileHandler.WriteEmployeesToJSON(employeeList);
             employeeList = fileHandler.GetEmployeesFromJSON();
             InitializeComponent();
+            dataGridMain.DataContext = employeeList;
         }
     }
 }
