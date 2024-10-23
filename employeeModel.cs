@@ -15,5 +15,12 @@ namespace kadrowa
         public DateTime employeeDateOfEmployment { get; set; }
         public DateTime? employeeDateOfTermination { get; set; }
 
+        public employeeModel(Int32 id, string name, string surname, float salary) {
+            employeeId = id;
+            employeeName = name;
+            employeeSurname = surname;
+            employeeSalary = salary;
+            employeeDateOfEmployment = DateTime.Now;
+        }
     }
 }

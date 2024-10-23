@@ -20,20 +20,32 @@
                 <ColumnDefinition Width="125"/>
 
             </Grid.ColumnDefinitions>
-            
             <Button Grid.Column="0" Margin="8">Dodaj</Button>
-            <Button Grid.Column="1">Edytuj</Button>
-            <Button Grid.Column="2">Zwolnij</Button>
-            <ComboBox Grid.Column="3">
-                <ComboBoxItem>Wszyscy</ComboBoxItem>
+            <Button Grid.Column="1" Margin="8">Edytuj</Button>
+            <Button Grid.Column="2" Margin="8">Zwolnij</Button>
+            <ComboBox Grid.Column="3" Margin="8">
+                <ComboBoxItem IsSelected="True">Wszyscy</ComboBoxItem>
                 <ComboBoxItem>Aktualnie pracujący</ComboBoxItem>
                 <ComboBoxItem>Byli pracownicy</ComboBoxItem>
             </ComboBox>
-            
-            
+
+
         </Grid>
         <Grid Grid.Row="1">
-            
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="439*"/>
+                <ColumnDefinition Width="361*"/>
+            </Grid.ColumnDefinitions>
+            <DataGrid Name="dataGridMain" Grid.ColumnSpan="2">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="ID" FontWeight="Bold"/>
+                    <DataGridTextColumn Header="IMIĘ" FontWeight="Bold"/>
+                    <DataGridTextColumn Header="NAZWISKO" FontWeight="Bold"/>
+                    <DataGridTextColumn Header="ZAROBKI" FontWeight="Bold"/>
+                    <DataGridTextColumn Header="DATA ZATRUDNIENIA" FontWeight="Bold"/>
+                    <DataGridTextColumn Header="DATA ZWOLNIENIA" FontWeight="Bold"/>
+                </DataGrid.Columns>
+            </DataGrid>
         </Grid>
     </Grid>
 </Window>
