@@ -25,7 +25,7 @@
 
             </Grid.ColumnDefinitions>
             <Button Grid.Column="0" Margin="8" Click="addEmployeeClick">Dodaj</Button>
-            <Button Grid.Column="1" Margin="8" Click="Button_Click">Edytuj</Button>
+            <Button Grid.Column="1" Margin="8" Click="editEmployee_Click">Edytuj</Button>
             <Button Grid.Column="2" Margin="8">Zwolnij</Button>
             <ComboBox Grid.Column="3" Margin="8">
                 <ComboBoxItem IsSelected="True">Wszyscy</ComboBoxItem>
@@ -40,7 +40,7 @@
                 <ColumnDefinition Width="439*"/>
                 <ColumnDefinition Width="361*"/>
             </Grid.ColumnDefinitions>
-            <DataGrid x:Name="dataGridMain" Grid.ColumnSpan="2" FontWeight="Bold" ItemsSource="{Binding}" AutoGenerateColumns="False">
+            <DataGrid x:Name="dataGridMain" Grid.ColumnSpan="2" FontWeight="Bold" ItemsSource="{Binding}" AutoGenerateColumns="False" >
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="ID" Binding="{Binding employeeId}" IsReadOnly="True"/>
                     <DataGridTextColumn Header="IMIĘ" Binding="{Binding employeeName}" IsReadOnly="True"/>

@@ -36,7 +36,7 @@ namespace kadrowa
         {
             if (!ValidateFields())
             {
-                MessageBox.Show("Wprowadzono niepoprawne dane do pól tekstowych!", "Błąd!");
+                MessageBox.Show("Wprowadzono niepoprawne dane!", "Błąd!", MessageBoxButton.OK, MessageBoxImage.Exclamation);
                 return;
             }
             employeeModel newEmployee = new employeeModel(
@@ -46,6 +46,7 @@ namespace kadrowa
                 float.Parse(newEmployeeSalary.Text),
                 newEmployeeDateOfEmployment.SelectedDate
                 );
+            mainWindow.EditEmployeeList(editedEmployee, newEmployee);
             return;
         }
         public bool ValidateFields()

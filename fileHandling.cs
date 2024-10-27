@@ -23,7 +23,7 @@ namespace kadrowa
             ObservableCollection<employeeModel> employees = new ObservableCollection<employeeModel>();
 
             if(!File.Exists(filepath)) {
-                MessageBox.Show("Nie można odnaleźć pliku z pracownikami!", "Kurka wodna...");
+                MessageBox.Show("Nie można odnaleźć pliku z pracownikami!\nKontynuuj swoją pracę, a my go stworzymy! \n(Ewentualnie wrzuć istniejący już plik do folderu)", "Ups...", MessageBoxButton.OK, MessageBoxImage.Exclamation);
                 return null;
             }
             using(StreamReader file = File.OpenText(filepath))
@@ -38,7 +38,8 @@ namespace kadrowa
             
             if (!File.Exists(filepath))
             {
-                File.Create(filepath);
+                File.Create(filepath).Close(); //OD razu zamykamy, żeby niżej nie było płaczu o to, że inny proces ma otwarty uchwyt do tego pliku.
+                
             }
             File.WriteAllText(filepath, "");
             StreamWriter writer = new StreamWriter(File.OpenWrite(filepath));

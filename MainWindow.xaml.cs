@@ -23,7 +23,11 @@ namespace kadrowa
         private fileHandling fileHandler = new fileHandling();
         public MainWindow()
         {
-            employeeList = fileHandler.GetEmployeesFromJSON();
+            if(fileHandler.GetEmployeesFromJSON() != null)
+            {
+                employeeList = fileHandler.GetEmployeesFromJSON();
+            }
+            
             InitializeComponent();
             dataGridMain.DataContext = employeeList;
         }
@@ -41,20 +45,28 @@ namespace kadrowa
         }
         public void AddToEmployeeList(employeeModel newEmployee)
         {
-            employeeList.Add(newEmployee);
+            employeeList.Add(newEmployee); 
             UpdateEmployeeListFile();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        public void EditEmployeeList(employeeModel employeeToRemove, employeeModel newEmployee)
+        {
+            int indexOfRemovedEmployee = employeeList.IndexOf(employeeToRemove);
+            employeeList.Remove(employeeToRemove);
+            employeeList.Insert(indexOfRemovedEmployee, newEmployee);
+            UpdateEmployeeListFile();
+        }
+
+        private void editEmployee_Click(object sender, RoutedEventArgs e)
         {
             if(dataGridMain.SelectedItem == null)
             {
-                MessageBox.Show("Wybierz pracownika, którego chcesz edytować!", "Błąd!");
+                MessageBox.Show("Wybierz pracownika, którego chcesz edytować!", "Błąd!", MessageBoxButton.OK, MessageBoxImage.Exclamation);
                 return;
             }
+
             editEmployee editEmployeeWindow = new editEmployee(this);
             editEmployeeWindow.Show();
-            
         }
     }
 }

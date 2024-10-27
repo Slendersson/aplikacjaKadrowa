@@ -56,7 +56,7 @@ namespace kadrowa
         {
             if (!ValidateFields())
             {
-                MessageBox.Show("Wprowadzono niepoprawne dane do pól tekstowych!", "Błąd!");
+                MessageBox.Show("Wprowadzono niepoprawne dane do pól tekstowych!", "Błąd!", MessageBoxButton.OK, MessageBoxImage.Exclamation);
                 return;
             }
             employeeModel newEmployee = new employeeModel(
