@@ -47,7 +47,7 @@ namespace kadrowa
                 newEmployeeDateOfEmployment.SelectedDate
                 );
             mainWindow.EditEmployeeList(editedEmployee, newEmployee);
-            return;
+            this.Close();
         }
         public bool ValidateFields()
         {

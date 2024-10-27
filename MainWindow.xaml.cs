@@ -21,6 +21,8 @@ namespace kadrowa
     {
         private ObservableCollection<employeeModel> employeeList = new ObservableCollection<employeeModel>();
         private fileHandling fileHandler = new fileHandling();
+        private terminationHandler terminationHandler = new terminationHandler();
+        private filteringHandler filteringHandler = new filteringHandler();
         public MainWindow()
         {
             if(fileHandler.GetEmployeesFromJSON() != null)
@@ -30,6 +32,7 @@ namespace kadrowa
             
             InitializeComponent();
             dataGridMain.DataContext = employeeList;
+            
         }
 
         private void addEmployeeClick(object sender, RoutedEventArgs e)
@@ -47,6 +50,7 @@ namespace kadrowa
         {
             employeeList.Add(newEmployee); 
             UpdateEmployeeListFile();
+            
         }
 
         public void EditEmployeeList(employeeModel employeeToRemove, employeeModel newEmployee)
@@ -57,6 +61,10 @@ namespace kadrowa
             UpdateEmployeeListFile();
         }
 
+        public ObservableCollection<employeeModel> GetEmployeeList()
+        {
+            return employeeList;
+        }
         private void editEmployee_Click(object sender, RoutedEventArgs e)
         {
             if(dataGridMain.SelectedItem == null)
@@ -67,6 +75,25 @@ namespace kadrowa
 
             editEmployee editEmployeeWindow = new editEmployee(this);
             editEmployeeWindow.Show();
+        }
+        
+        
+
+        private void terminateEmployee_Click(object sender, RoutedEventArgs e)
+        {
+            if (dataGridMain.SelectedItem == null)
+            {
+                MessageBox.Show("Wybierz pracownika, którego chcesz zwolnić!", "Błąd!", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                return;
+            }
+            employeeModel selectedEmployee = dataGridMain.SelectedItem as employeeModel;
+            terminationHandler.terminateEmployee(ref selectedEmployee);
+            UpdateEmployeeListFile();
+        }
+
+        private void filteringCombo_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            filteringHandler.evaluateAndUpdate(this);
         }
     }
 }

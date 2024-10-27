@@ -22,5 +22,9 @@ namespace kadrowa
             employeeSalary = salary;
             employeeDateOfEmployment = dateOfEmployment ?? DateTime.Now;
         }
+        public void internalTerminateEmployee()
+        {
+            this.employeeDateOfTermination = DateTime.Now;
+        }
     }
 }
