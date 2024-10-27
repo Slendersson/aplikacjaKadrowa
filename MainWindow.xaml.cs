@@ -44,5 +44,17 @@ namespace kadrowa
             employeeList.Add(newEmployee);
             UpdateEmployeeListFile();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            if(dataGridMain.SelectedItem == null)
+            {
+                MessageBox.Show("Wybierz pracownika, którego chcesz edytować!", "Błąd!");
+                return;
+            }
+            editEmployee editEmployeeWindow = new editEmployee(this);
+            editEmployeeWindow.Show();
+            
+        }
     }
 }

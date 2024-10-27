@@ -1,0 +1,53 @@
+﻿<Window x:Class="kadrowa.editEmployee"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:kadrowa"
+        mc:Ignorable="d"
+        Title="Edytuj dane pracownika" Height="450" Width="500">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="8*"/>
+            <RowDefinition Height="2*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Label Grid.Row="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="30">ID</Label>
+                <Label Grid.Row="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="30">Imie</Label>
+                <Label Grid.Row="2" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="30">Nazwisko</Label>
+                <Label Grid.Row="3" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="30">Zarobki</Label>
+                <Label Grid.Row="4" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="30">Data Zatrudnienia</Label>
+            </Grid>
+            <Grid Grid.Column="1" Name="tbGrid">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <TextBox Grid.Row="0" Name="newEmployeeId" Height="30" Margin="5" ></TextBox>
+                <TextBox Grid.Row="1" Name="newEmployeeName" Height="30" Margin="5"></TextBox>
+                <TextBox Grid.Row="2" Name="newEmployeeSurname" Height="30" Margin="5"></TextBox>
+                <TextBox Grid.Row="3" Name="newEmployeeSalary" Height="30" Margin="5"></TextBox>
+                <DatePicker Grid.Row="4" Name="newEmployeeDateOfEmployment" Height="30" Margin="5"></DatePicker>
+                
+            </Grid>
+
+        </Grid>
+        <Button Grid.Row="1" Height="50" Width="300" Click="editEmployeeButtonClick">Edytuj Pracownika</Button>
+
+    </Grid>
+</Window>

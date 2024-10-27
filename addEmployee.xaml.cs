@@ -54,7 +54,7 @@ namespace kadrowa
 
         private void addEmployeeButtonClick(object sender, RoutedEventArgs e)
         {
-            if(!ValidateFields())
+            if (!ValidateFields())
             {
                 MessageBox.Show("Wprowadzono niepoprawne dane do pól tekstowych!", "Błąd!");
                 return;
