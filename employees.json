@@ -1,1 +1,1 @@
-[{"employeeId":1,"employeeName":"Marek","employeeSurname":"Browarek","employeeSalary":1000.0,"employeeDateOfEmployment":"2024-10-23T09:02:13.4191932+02:00","employeeDateOfTermination":null}]
+[{"employeeId":1,"employeeName":"Marek","employeeSurname":"Browarek","employeeSalary":1000.0,"employeeDateOfEmployment":"2024-10-23T09:02:13.4191932+02:00","employeeDateOfTermination":null},{"employeeId":2,"employeeName":"Łukasz","employeeSurname":"Groszek","employeeSalary":1200.0,"employeeDateOfEmployment":"2024-10-27T14:39:28.0433316+01:00","employeeDateOfTermination":null}]

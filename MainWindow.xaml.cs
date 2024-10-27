@@ -19,13 +19,30 @@ namespace kadrowa
 {
     public partial class MainWindow : Window
     {
+        private ObservableCollection<employeeModel> employeeList = new ObservableCollection<employeeModel>();
+        private fileHandling fileHandler = new fileHandling();
         public MainWindow()
         {
-            fileHandling fileHandler =  new fileHandling();
-            ObservableCollection<employeeModel> employeeList = new ObservableCollection<employeeModel>();
             employeeList = fileHandler.GetEmployeesFromJSON();
             InitializeComponent();
             dataGridMain.DataContext = employeeList;
+        }
+
+        private void addEmployeeClick(object sender, RoutedEventArgs e)
+        {
+            addEmployee addEmployeeWindow = new addEmployee(this);
+            //addEmployeeWindow.
+            addEmployeeWindow.Show();
+        }
+        
+        public void UpdateEmployeeListFile()
+        {
+            fileHandler.WriteEmployeesToJSON(employeeList);
+        }
+        public void AddToEmployeeList(employeeModel newEmployee)
+        {
+            employeeList.Add(newEmployee);
+            UpdateEmployeeListFile();
         }
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace kadrowa
 {
-    internal class employeeModel
+    public class employeeModel
     {
         public Int32 employeeId { get; set; }
         public string employeeName { get; set; }
