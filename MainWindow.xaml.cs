@@ -72,6 +72,11 @@ namespace kadrowa
                 MessageBox.Show("Wybierz pracownika, którego chcesz edytować!", "Błąd!", MessageBoxButton.OK, MessageBoxImage.Exclamation);
                 return;
             }
+            if((dataGridMain.SelectedItem as employeeModel).employeeDateOfTermination != null)
+            {
+                MessageBox.Show("Nie możesz edytować zwolnionego pracownika!", "Błąd!", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                return;
+            }
 
             editEmployee editEmployeeWindow = new editEmployee(this);
             editEmployeeWindow.Show();
